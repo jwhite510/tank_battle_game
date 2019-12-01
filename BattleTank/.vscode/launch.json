@@ -1,0 +1,104 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "BattleTank (Debug)",
+			"request": "launch",
+			"preLaunchTask": "BattleTank Linux Debug Build",
+			"program": "/home/jonathon/projects/battle_tank_game/BattleTank/Binaries/Linux/BattleTank-Linux-Debug",
+			"args": [
+			],
+			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "BattleTank (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "BattleTank Linux DebugGame Build",
+			"program": "/home/jonathon/projects/battle_tank_game/BattleTank/Binaries/Linux/BattleTank-Linux-DebugGame",
+			"args": [
+			],
+			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "BattleTank (Development)",
+			"request": "launch",
+			"preLaunchTask": "BattleTank Linux Development Build",
+			"program": "/home/jonathon/projects/battle_tank_game/BattleTank/Binaries/Linux/BattleTank",
+			"args": [
+			],
+			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "BattleTank (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "BattleTank Linux Shipping Build",
+			"program": "/home/jonathon/projects/battle_tank_game/BattleTank/Binaries/Linux/BattleTank-Linux-Shipping",
+			"args": [
+			],
+			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "BattleTank (Test)",
+			"request": "launch",
+			"preLaunchTask": "BattleTank Linux Test Build",
+			"program": "/home/jonathon/projects/battle_tank_game/BattleTank/Binaries/Linux/BattleTank-Linux-Test",
+			"args": [
+			],
+			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "BattleTankEditor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "BattleTankEditor Linux Debug Build",
+			"program": "/home/jonathon/projects/unreal_engine/UnrealEngine/Engine/Binaries/Linux/UE4Editor-Linux-Debug",
+			"args": [
+				"/home/jonathon/projects/battle_tank_game/BattleTank/BattleTank.uproject"
+			],
+			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "BattleTankEditor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "BattleTankEditor Linux DebugGame Build",
+			"program": "/home/jonathon/projects/unreal_engine/UnrealEngine/Engine/Binaries/Linux/UE4Editor",
+			"args": [
+				"/home/jonathon/projects/battle_tank_game/BattleTank/BattleTank.uproject"
+			],
+			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "BattleTankEditor (Development)",
+			"request": "launch",
+			"preLaunchTask": "BattleTankEditor Linux Development Build",
+			"program": "/home/jonathon/projects/unreal_engine/UnrealEngine/Engine/Binaries/Linux/UE4Editor",
+			"args": [
+				"/home/jonathon/projects/battle_tank_game/BattleTank/BattleTank.uproject"
+			],
+			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "mono",
+			"request": "launch",
+			"program": "/home/jonathon/projects/unreal_engine/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe",
+			"console": "internalConsole",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=\"/home/jonathon/projects/battle_tank_game/BattleTank/BattleTank.uproject\"",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine"
+		}
+	]
+}
