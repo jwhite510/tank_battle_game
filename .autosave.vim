@@ -8,16 +8,16 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +0 term://.//8503:/bin/bash
-badd +8 BattleTank/Source/BattleTank/Private/Tank.cpp
-badd +10 BattleTank/Source/BattleTank/Public/Tank.h
-badd +6 BattleTank/Source/BattleTank/Private/TankPlayerController.cpp
-badd +0 BattleTank/Source/BattleTank/Public/TankPlayerController.h
+badd +10 BattleTank/Source/BattleTank/Private/Tank.cpp
+badd +12 BattleTank/Source/BattleTank/Public/Tank.h
+badd +2 BattleTank/Source/BattleTank/Private/TankPlayerController.cpp
+badd +9 BattleTank/Source/BattleTank/Public/TankPlayerController.h
 badd +5 BattleTank/Source/BattleTank/Private/TankAIController.cpp
 badd +20 BattleTank/Source/BattleTank/Public/TankAIController.h
 badd +32 term://.//11576:/bin/bash
 badd +0 term://.//12718:/bin/bash
 badd +23 BattleTank/Intermediate/Build/Linux/B4D820EA/UE4Editor/Inc/BattleTank/Tank.generated.h
-badd +0 .grepignoredir
+badd +2 .grepignoredir
 argglobal
 %argdel
 $argadd .
@@ -131,11 +131,14 @@ tabedit ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Private/TankPla
 set splitbelow splitright
 wincmd _ | wincmd |
 split
-1wincmd k
+wincmd _ | wincmd |
+split
+2wincmd k
 wincmd w
 wincmd _ | wincmd |
 vsplit
 1wincmd h
+wincmd w
 wincmd w
 set nosplitbelow
 set nosplitright
@@ -144,11 +147,12 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 12 + 28) / 56)
-exe '2resize ' . ((&lines * 40 + 28) / 56)
+exe '1resize ' . ((&lines * 8 + 28) / 56)
+exe '2resize ' . ((&lines * 38 + 28) / 56)
 exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
-exe '3resize ' . ((&lines * 40 + 28) / 56)
+exe '3resize ' . ((&lines * 38 + 28) / 56)
 exe 'vert 3resize ' . ((&columns * 119 + 119) / 239)
+exe '4resize ' . ((&lines * 5 + 28) / 56)
 argglobal
 if bufexists("term://.//11576:/bin/bash") | buffer term://.//11576:/bin/bash | else | edit term://.//11576:/bin/bash | endif
 setlocal fdm=manual
@@ -159,12 +163,12 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 711 - ((6 * winheight(0) + 6) / 12)
+let s:l = 1172 - ((7 * winheight(0) + 4) / 8)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-711
-normal! 055|
+1172
+normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -184,11 +188,13 @@ normal! zo
 normal! zo
 11
 normal! zo
-let s:l = 10 - ((9 * winheight(0) + 20) / 40)
+35
+normal! zo
+let s:l = 36 - ((22 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-10
+36
 normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
@@ -210,20 +216,33 @@ normal! zo
 normal! zo
 19
 normal! zo
-let s:l = 21 - ((15 * winheight(0) + 20) / 40)
+let s:l = 26 - ((17 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-21
-normal! 011|
+26
+normal! 016|
+lcd ~/projects/battle_tank_game
+wincmd w
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=20
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
 lcd ~/projects/battle_tank_game
 wincmd w
 2wincmd w
-exe '1resize ' . ((&lines * 12 + 28) / 56)
-exe '2resize ' . ((&lines * 40 + 28) / 56)
+exe '1resize ' . ((&lines * 8 + 28) / 56)
+exe '2resize ' . ((&lines * 38 + 28) / 56)
 exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
-exe '3resize ' . ((&lines * 40 + 28) / 56)
+exe '3resize ' . ((&lines * 38 + 28) / 56)
 exe 'vert 3resize ' . ((&columns * 119 + 119) / 239)
+exe '4resize ' . ((&lines * 5 + 28) / 56)
 tabedit ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Private/TankAIController.cpp
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -256,11 +275,11 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 716 - ((6 * winheight(0) + 3) / 7)
+let s:l = 1172 - ((6 * winheight(0) + 3) / 7)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-716
+1172
 normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
@@ -283,12 +302,12 @@ normal! zo
 normal! zo
 30
 normal! zo
-let s:l = 21 - ((19 * winheight(0) + 22) / 45)
+let s:l = 18 - ((17 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-21
-normal! 0
+18
+normal! 07|
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -309,11 +328,11 @@ normal! zo
 normal! zo
 19
 normal! zo
-let s:l = 20 - ((19 * winheight(0) + 22) / 45)
+let s:l = 18 - ((17 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-20
+18
 normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
@@ -366,11 +385,11 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 12 - ((11 * winheight(0) + 26) / 53)
+let s:l = 11 - ((10 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-12
+11
 normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
@@ -395,11 +414,11 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 353 - ((15 * winheight(0) + 26) / 53)
+let s:l = 510 - ((52 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-353
+510
 normal! 056|
 lcd ~/projects/battle_tank_game
 tabnext 3
