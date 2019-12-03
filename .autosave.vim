@@ -161,11 +161,11 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 5490 - ((6 * winheight(0) + 3) / 7)
+let s:l = 10008 - ((6 * winheight(0) + 3) / 7)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-5490
+10008
 normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
@@ -324,12 +324,12 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 2546 - ((4 * winheight(0) + 4) / 8)
+let s:l = 10008 - ((7 * winheight(0) + 4) / 8)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2546
-normal! 053|
+10008
+normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -351,12 +351,14 @@ normal! zo
 normal! zo
 35
 normal! zo
-let s:l = 53 - ((25 * winheight(0) + 22) / 44)
+49
+normal! zo
+let s:l = 58 - ((21 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-53
-normal! 0
+58
+normal! 05|
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -383,12 +385,12 @@ normal! zo
 normal! zo
 25
 normal! zo
-let s:l = 36 - ((27 * winheight(0) + 22) / 44)
+let s:l = 21 - ((12 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-36
-normal! 011|
+21
+normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -463,11 +465,11 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 1059 - ((52 * winheight(0) + 26) / 53)
+let s:l = 1138 - ((52 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1059
+1138
 normal! 056|
 lcd ~/projects/battle_tank_game
 tabnext 5
