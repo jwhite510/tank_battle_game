@@ -34,4 +34,6 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
           float CrossHairYLocation = 0.3333;
 
           bool GetSightRayHitLocation(FVector& HitLocationIn) const;
+
+          bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 };
