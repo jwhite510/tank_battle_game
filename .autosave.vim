@@ -10,8 +10,10 @@ set shortmess=aoO
 badd +0 term://.//8503:/bin/bash
 badd +10 BattleTank/Source/BattleTank/Private/Tank.cpp
 badd +12 BattleTank/Source/BattleTank/Public/Tank.h
+badd +1 ~/projects/05_BuildingEscape/BuildingEsc2/Source/BuildingEsc2/openttheeedorrrr.cpp
+badd +1 ~/projects/05_BuildingEscape/BuildingEsc2/Source/BuildingEsc2/openttheeedorrrr.h
 badd +2 BattleTank/Source/BattleTank/Private/TankPlayerController.cpp
-badd +9 BattleTank/Source/BattleTank/Public/TankPlayerController.h
+badd +28 BattleTank/Source/BattleTank/Public/TankPlayerController.h
 badd +5 BattleTank/Source/BattleTank/Private/TankAIController.cpp
 badd +20 BattleTank/Source/BattleTank/Public/TankAIController.h
 badd +32 term://.//11576:/bin/bash
@@ -159,11 +161,11 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 2123 - ((6 * winheight(0) + 3) / 7)
+let s:l = 5490 - ((6 * winheight(0) + 3) / 7)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2123
+5490
 normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
@@ -287,7 +289,14 @@ split
 wincmd w
 wincmd _ | wincmd |
 vsplit
-1wincmd h
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
 wincmd w
 set nosplitbelow
 set nosplitright
@@ -300,7 +309,11 @@ exe '1resize ' . ((&lines * 8 + 28) / 56)
 exe '2resize ' . ((&lines * 44 + 28) / 56)
 exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
 exe '3resize ' . ((&lines * 44 + 28) / 56)
-exe 'vert 3resize ' . ((&columns * 119 + 119) / 239)
+exe 'vert 3resize ' . ((&columns * 59 + 119) / 239)
+exe '4resize ' . ((&lines * 22 + 28) / 56)
+exe 'vert 4resize ' . ((&columns * 59 + 119) / 239)
+exe '5resize ' . ((&lines * 21 + 28) / 56)
+exe 'vert 5resize ' . ((&columns * 59 + 119) / 239)
 argglobal
 if bufexists("term://.//11576:/bin/bash") | buffer term://.//11576:/bin/bash | else | edit term://.//11576:/bin/bash | endif
 setlocal fdm=manual
@@ -311,12 +324,12 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 2123 - ((7 * winheight(0) + 4) / 8)
+let s:l = 2546 - ((4 * winheight(0) + 4) / 8)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2123
-normal! 0
+2546
+normal! 053|
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -338,12 +351,12 @@ normal! zo
 normal! zo
 35
 normal! zo
-let s:l = 47 - ((26 * winheight(0) + 22) / 44)
+let s:l = 53 - ((25 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-47
-normal! 029|
+53
+normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -358,24 +371,67 @@ setlocal fdn=20
 setlocal fen
 16
 normal! zo
-19
+20
 normal! zo
-19
+20
 normal! zo
-19
+20
 normal! zo
-29
+25
 normal! zo
-29
+25
 normal! zo
-29
+25
 normal! zo
-let s:l = 29 - ((28 * winheight(0) + 22) / 44)
+let s:l = 36 - ((27 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-29
-normal! 047|
+36
+normal! 011|
+lcd ~/projects/battle_tank_game
+wincmd w
+argglobal
+if bufexists("~/projects/05_BuildingEscape/BuildingEsc2/Source/BuildingEsc2/openttheeedorrrr.h") | buffer ~/projects/05_BuildingEscape/BuildingEsc2/Source/BuildingEsc2/openttheeedorrrr.h | else | edit ~/projects/05_BuildingEscape/BuildingEsc2/Source/BuildingEsc2/openttheeedorrrr.h | endif
+setlocal fdm=indent
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=20
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+37
+normal! zo
+37
+normal! zo
+37
+normal! zo
+let s:l = 41 - ((10 * winheight(0) + 11) / 22)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+41
+normal! 019|
+lcd ~/projects/battle_tank_game
+wincmd w
+argglobal
+if bufexists("~/projects/05_BuildingEscape/BuildingEsc2/Source/BuildingEsc2") | buffer ~/projects/05_BuildingEscape/BuildingEsc2/Source/BuildingEsc2 | else | edit ~/projects/05_BuildingEscape/BuildingEsc2/Source/BuildingEsc2 | endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=20
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 17 - ((10 * winheight(0) + 10) / 21)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+17
+normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
 2wincmd w
@@ -383,7 +439,11 @@ exe '1resize ' . ((&lines * 8 + 28) / 56)
 exe '2resize ' . ((&lines * 44 + 28) / 56)
 exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
 exe '3resize ' . ((&lines * 44 + 28) / 56)
-exe 'vert 3resize ' . ((&columns * 119 + 119) / 239)
+exe 'vert 3resize ' . ((&columns * 59 + 119) / 239)
+exe '4resize ' . ((&lines * 22 + 28) / 56)
+exe 'vert 4resize ' . ((&columns * 59 + 119) / 239)
+exe '5resize ' . ((&lines * 21 + 28) / 56)
+exe 'vert 5resize ' . ((&columns * 59 + 119) / 239)
 tabnew
 set splitbelow splitright
 set nosplitbelow
@@ -403,11 +463,11 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 927 - ((52 * winheight(0) + 26) / 53)
+let s:l = 1059 - ((52 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-927
+1059
 normal! 056|
 lcd ~/projects/battle_tank_game
 tabnext 5
