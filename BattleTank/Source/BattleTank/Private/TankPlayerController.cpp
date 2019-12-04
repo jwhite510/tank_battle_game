@@ -15,21 +15,16 @@ void ATankPlayerController::BeginPlay()
         else{
           UE_LOG(LogTemp, Warning, TEXT( "PlayerController possessing %s" ), *ControlledTank->GetName());
         }
-
-
 }
-
 void ATankPlayerController::Tick(float DeltaTime)
 {
   Super::Tick(DeltaTime);
   AimTowardsCrossHair();
 }
-
 ATank* ATankPlayerController::GetControlledTank() const
 {
   return Cast<ATank>(GetPawn());
 }
-
 void ATankPlayerController::AimTowardsCrossHair()
 {
   if(!GetControlledTank()){ return; }
@@ -38,11 +33,10 @@ void ATankPlayerController::AimTowardsCrossHair()
   // get world location through crosshair
   if(GetSightRayHitLocation(OutHitLocation))
   {
-    UE_LOG(LogTemp, Warning, TEXT("Hit Location: %s"), *OutHitLocation.ToString());
+    GetControlledTank()->AimAt(OutHitLocation);
   }
   // if it hits something
     // tell the control tank to aim at this point
-
 }
 bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocationIn) const
 {
@@ -61,7 +55,6 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocationIn) const
   }
   return true;
 }
-
 bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const
 {
   FVector CameraWorldLocation; // for discarding
@@ -74,7 +67,6 @@ bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& 
 }
 bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const
 {
-
   FHitResult HitResult;
   auto StartLocation = PlayerCameraManager->GetCameraLocation();
   auto EndLocation = StartLocation + (LookDirection*LineTraceRange);
