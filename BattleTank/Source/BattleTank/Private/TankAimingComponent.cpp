@@ -2,6 +2,7 @@
 
 
 #include "TankAimingComponent.h"
+#include "TankBarrel.h"
 
 
 // Sets default values for this component's properties
@@ -14,7 +15,7 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
-void UTankAimingComponent::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
+void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
   Barrel = BarrelToSet;
 
@@ -56,5 +57,7 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
   auto DeltaRotator = AimAsRotator - BarrelRotation;
 
   UE_LOG(LogTemp, Warning, TEXT( "AimAsRotator %s" ), *AimAsRotator.ToString());
+
+  Barrel->Elevate(5); // todo remove magic number
 
 }
