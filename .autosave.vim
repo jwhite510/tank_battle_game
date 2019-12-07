@@ -71,11 +71,17 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 7 - ((6 * winheight(0) + 22) / 45)
+24
+normal! zo
+24
+normal! zo
+24
+normal! zo
+let s:l = 21 - ((17 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
+21
 normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
@@ -89,22 +95,21 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-44
+25
 normal! zo
-48
+29
 normal! zo
-52
+33
 normal! zo
-53
-normal! zo
-let s:l = 60 - ((20 * winheight(0) + 22) / 45)
+let s:l = 56 - ((22 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-60
-normal! 012|
+56
+normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
+3wincmd w
 exe '1resize ' . ((&lines * 7 + 28) / 56)
 exe '2resize ' . ((&lines * 45 + 28) / 56)
 exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
@@ -159,12 +164,18 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 18 - ((13 * winheight(0) + 23) / 46)
+16
+normal! zo
+16
+normal! zo
+16
+normal! zo
+let s:l = 19 - ((18 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-18
-normal! 0
+19
+normal! 09|
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -177,11 +188,13 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 24 - ((8 * winheight(0) + 23) / 46)
+42
+normal! zo
+let s:l = 41 - ((30 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-24
+41
 normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
@@ -215,12 +228,12 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 104 - ((52 * winheight(0) + 26) / 53)
+let s:l = 285 - ((51 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-104
-normal! 056|
+285
+normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -241,10 +254,9 @@ normal! zt
 normal! 04|
 lcd ~/projects/battle_tank_game
 wincmd w
-2wincmd w
 exe 'vert 1resize ' . ((&columns * 119 + 119) / 239)
 exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
-tabnext 3
+tabnext 1
 set stal=1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
