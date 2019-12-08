@@ -25,8 +25,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 {
     // auto OurTankName = GetOwner()->GetName();
     // auto BarrelLocation = Barrel->GetComponentLocation().ToString();
-    // UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s from %s"), *OurTankName, *HitLocation.ToString(), *BarrelLocation);
-  if(!Barrel){return;}
+    if(!Barrel){return;}
     FVector OutLaunchVelocity(0);
     FVector StartLocation=Barrel->GetSocketLocation(FName("Projectile"));
 
@@ -43,8 +42,13 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
       // turn into a unit vector
       auto AimDirection = OutLaunchVelocity.GetSafeNormal();
       MoveBarrelTowards(AimDirection);
-      auto TankName = GetOwner()->GetName();
-      UE_LOG(LogTemp, Warning, TEXT("%s Aiming at %s"), *TankName, *AimDirection.ToString());
+
+      auto Time = GetWorld()->GetTimeSeconds();
+      UE_LOG(LogTemp, Warning, TEXT( "%f Aim solution found"), Time);
+    }
+    else{
+      auto Time = GetWorld()->GetTimeSeconds();
+      UE_LOG(LogTemp, Warning, TEXT( "%f No aim solve found"), Time);
     }
 
 }
@@ -56,7 +60,7 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 
   auto DeltaRotator = AimAsRotator - BarrelRotation;
 
-  UE_LOG(LogTemp, Warning, TEXT( "AimAsRotator %s" ), *AimAsRotator.ToString());
+  // UE_LOG(LogTemp, Warning, TEXT( "AimAsRotator %s" ), *AimAsRotator.ToString());
 
   Barrel->Elevate(5); // todo remove magic number
 
