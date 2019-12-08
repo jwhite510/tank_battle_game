@@ -1,6 +1,7 @@
 {
 	"files.exclude": {
 		"/home/jonathon/projects/battle_tank_game/BattleTank/.vscode": true,
+		"/home/jonathon/projects/battle_tank_game/BattleTank/CMakeFiles": true,
 		"/home/jonathon/projects/battle_tank_game/BattleTank/Content": true,
 		"/home/jonathon/projects/battle_tank_game/BattleTank/DerivedDataCache": true,
 		"/home/jonathon/projects/battle_tank_game/BattleTank/Intermediate": true,
