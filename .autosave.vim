@@ -8,7 +8,7 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +1 term://.//20868:/bin/bash
-badd +64 BattleTank/Source/BattleTank/Private/Tank.cpp
+badd +58 BattleTank/Source/BattleTank/Private/Tank.cpp
 badd +30 BattleTank/Source/BattleTank/Public/Tank.h
 badd +53 BattleTank/Source/BattleTank/Private/TankPlayerController.cpp
 badd +1 BattleTank/Source/BattleTank/Public
@@ -31,8 +31,8 @@ badd +2660 BattleTank/BattleTankHeader.pri
 badd +0 term://.//21272:/bin/bash
 badd +2 .grepignorefile
 badd +0 term://.//21754:/bin/bash
-badd +3 BattleTank/Source/BattleTank/Private/TankTrack.cpp
-badd +19 BattleTank/Source/BattleTank/Public/TankTrack.h
+badd +10 BattleTank/Source/BattleTank/Private/TankTrack.cpp
+badd +23 BattleTank/Source/BattleTank/Public/TankTrack.h
 badd +1 term://.//25228:/bin/bash
 argglobal
 %argdel
@@ -192,10 +192,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 14 + 28) / 56)
-exe '2resize ' . ((&lines * 34 + 28) / 56)
+exe '1resize ' . ((&lines * 11 + 28) / 56)
+exe '2resize ' . ((&lines * 37 + 28) / 56)
 exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
-exe '3resize ' . ((&lines * 34 + 28) / 56)
+exe '3resize ' . ((&lines * 37 + 28) / 56)
 exe 'vert 3resize ' . ((&columns * 119 + 119) / 239)
 exe '4resize ' . ((&lines * 3 + 28) / 56)
 argglobal
@@ -208,12 +208,12 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 53 - ((10 * winheight(0) + 7) / 14)
+let s:l = 359 - ((5 * winheight(0) + 5) / 11)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-53
-normal! 0
+359
+normal! 0166|
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -233,12 +233,12 @@ normal! zo
 normal! zo
 18
 normal! zo
-let s:l = 19 - ((12 * winheight(0) + 17) / 34)
+let s:l = 21 - ((20 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-19
-normal! 043|
+21
+normal! 017|
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -251,12 +251,12 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 10 - ((9 * winheight(0) + 17) / 34)
+let s:l = 15 - ((14 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-10
-normal! 071|
+15
+normal! 046|
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -272,10 +272,10 @@ setlocal fen
 lcd ~/projects/battle_tank_game
 wincmd w
 3wincmd w
-exe '1resize ' . ((&lines * 14 + 28) / 56)
-exe '2resize ' . ((&lines * 34 + 28) / 56)
+exe '1resize ' . ((&lines * 11 + 28) / 56)
+exe '2resize ' . ((&lines * 37 + 28) / 56)
 exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
-exe '3resize ' . ((&lines * 34 + 28) / 56)
+exe '3resize ' . ((&lines * 37 + 28) / 56)
 exe 'vert 3resize ' . ((&columns * 119 + 119) / 239)
 exe '4resize ' . ((&lines * 3 + 28) / 56)
 tabedit ~/projects/battle_tank_game/BattleTank/.ycm_extra_conf.py
@@ -331,12 +331,12 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 196 - ((52 * winheight(0) + 26) / 53)
+let s:l = 350 - ((52 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-196
-normal! 056|
+350
+normal! 058|
 lcd ~/projects/battle_tank_game
 wincmd w
 exe 'vert 1resize ' . ((&columns * 119 + 119) / 239)
