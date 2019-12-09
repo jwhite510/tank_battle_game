@@ -8,28 +8,32 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +1 term://.//20868:/bin/bash
-badd +58 BattleTank/Source/BattleTank/Private/Tank.cpp
-badd +1 BattleTank/Source/BattleTank/Public/Tank.h
-badd +13 BattleTank/Source/BattleTank/Private/TankPlayerController.cpp
+badd +64 BattleTank/Source/BattleTank/Private/Tank.cpp
+badd +30 BattleTank/Source/BattleTank/Public/Tank.h
+badd +53 BattleTank/Source/BattleTank/Private/TankPlayerController.cpp
 badd +1 BattleTank/Source/BattleTank/Public
 badd +24 BattleTank/Source/BattleTank/Public/TankAimingComponent.h
-badd +53 BattleTank/Source/BattleTank/Private/TankAimingComponent.cpp
+badd +64 BattleTank/Source/BattleTank/Private/TankAimingComponent.cpp
 badd +170 ~/.vimrc
-badd +1 BattleTank/.ycm_extra_conf.py
+badd +571 BattleTank/.ycm_extra_conf.py
 badd +25 BattleTank/Source/BattleTank/Private/TankAIController.cpp
-badd +13 BattleTank/Source/BattleTank/Private/Projectile.cpp
+badd +34 BattleTank/Source/BattleTank/Private/Projectile.cpp
 badd +7 BattleTank/Source/BattleTank/Private/MyProjectileMovementComponent.cpp
 badd +15 BattleTank/Source/BattleTank/Public/MyProjectileMovementComponent.h
 badd +29 BattleTank/Source/BattleTank/Public/Projectile.h
 badd +24 BattleTank/Source/BattleTank/Public/TankAIController.h
-badd +3 BattleTank/Source/BattleTank/Private/TankBarrel.cpp
+badd +9 BattleTank/Source/BattleTank/Private/TankBarrel.cpp
 badd +20 BattleTank/Source/BattleTank/Public/TankTurret.h
 badd +41 BattleTank/Source/BattleTank/Public/TankPlayerController.h
-badd +21 BattleTank/Source/BattleTank/Public/TankBarrel.h
+badd +22 BattleTank/Source/BattleTank/Public/TankBarrel.h
 badd +2234 BattleTank/BattleTankSource.pri
 badd +2660 BattleTank/BattleTankHeader.pri
 badd +0 term://.//21272:/bin/bash
-badd +0 .grepignorefile
+badd +2 .grepignorefile
+badd +0 term://.//21754:/bin/bash
+badd +3 BattleTank/Source/BattleTank/Private/TankTrack.cpp
+badd +19 BattleTank/Source/BattleTank/Public/TankTrack.h
+badd +1 term://.//25228:/bin/bash
 argglobal
 %argdel
 $argadd ./
@@ -168,18 +172,17 @@ exe 'vert 3resize ' . ((&columns * 79 + 119) / 239)
 exe '4resize ' . ((&lines * 38 + 28) / 56)
 exe 'vert 4resize ' . ((&columns * 79 + 119) / 239)
 exe '5resize ' . ((&lines * 3 + 28) / 56)
-tabedit ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Public/Tank.h
+tabedit ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Public/TankTrack.h
 set splitbelow splitright
 wincmd _ | wincmd |
 split
-1wincmd k
+wincmd _ | wincmd |
+split
+2wincmd k
+wincmd w
 wincmd _ | wincmd |
 vsplit
 1wincmd h
-wincmd w
-wincmd _ | wincmd |
-split
-1wincmd k
 wincmd w
 wincmd w
 set nosplitbelow
@@ -189,44 +192,14 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 42 + 28) / 56)
-exe 'vert 1resize ' . ((&columns * 119 + 119) / 239)
-exe '2resize ' . ((&lines * 21 + 28) / 56)
+exe '1resize ' . ((&lines * 14 + 28) / 56)
+exe '2resize ' . ((&lines * 34 + 28) / 56)
 exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
-exe '3resize ' . ((&lines * 20 + 28) / 56)
+exe '3resize ' . ((&lines * 34 + 28) / 56)
 exe 'vert 3resize ' . ((&columns * 119 + 119) / 239)
-exe '4resize ' . ((&lines * 10 + 28) / 56)
+exe '4resize ' . ((&lines * 3 + 28) / 56)
 argglobal
-setlocal fdm=indent
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=20
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-20
-normal! zo
-20
-normal! zo
-20
-normal! zo
-48
-normal! zo
-48
-normal! zo
-48
-normal! zo
-let s:l = 30 - ((12 * winheight(0) + 21) / 42)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-30
-normal! 033|
-lcd ~/projects/battle_tank_game
-wincmd w
-argglobal
-if bufexists("~/projects/battle_tank_game/.grepignorefile") | buffer ~/projects/battle_tank_game/.grepignorefile | else | edit ~/projects/battle_tank_game/.grepignorefile | endif
+if bufexists("term://.//25228:/bin/bash") | buffer term://.//25228:/bin/bash | else | edit term://.//25228:/bin/bash | endif
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -235,17 +208,15 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-silent! normal! zE
-let s:l = 2 - ((1 * winheight(0) + 10) / 21)
+let s:l = 53 - ((10 * winheight(0) + 7) / 14)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2
-normal! 05|
+53
+normal! 0
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
-if bufexists("~/projects/battle_tank_game/BattleTank/Source/BattleTank/Private/Projectile.cpp") | buffer ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Private/Projectile.cpp | else | edit ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Private/Projectile.cpp | endif
 setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -254,18 +225,38 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-10
+15
 normal! zo
-10
+18
 normal! zo
-10
+18
 normal! zo
-let s:l = 13 - ((4 * winheight(0) + 10) / 20)
+18
+normal! zo
+let s:l = 19 - ((12 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 09|
+19
+normal! 043|
+lcd ~/projects/battle_tank_game
+wincmd w
+argglobal
+if bufexists("~/projects/battle_tank_game/BattleTank/Source/BattleTank/Private/TankTrack.cpp") | buffer ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Private/TankTrack.cpp | else | edit ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Private/TankTrack.cpp | endif
+setlocal fdm=indent
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=20
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 10 - ((9 * winheight(0) + 17) / 34)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+10
+normal! 071|
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -280,16 +271,19 @@ setlocal fdn=20
 setlocal fen
 lcd ~/projects/battle_tank_game
 wincmd w
-2wincmd w
-exe '1resize ' . ((&lines * 42 + 28) / 56)
-exe 'vert 1resize ' . ((&columns * 119 + 119) / 239)
-exe '2resize ' . ((&lines * 21 + 28) / 56)
+3wincmd w
+exe '1resize ' . ((&lines * 14 + 28) / 56)
+exe '2resize ' . ((&lines * 34 + 28) / 56)
 exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
-exe '3resize ' . ((&lines * 20 + 28) / 56)
+exe '3resize ' . ((&lines * 34 + 28) / 56)
 exe 'vert 3resize ' . ((&columns * 119 + 119) / 239)
-exe '4resize ' . ((&lines * 10 + 28) / 56)
+exe '4resize ' . ((&lines * 3 + 28) / 56)
 tabedit ~/projects/battle_tank_game/BattleTank/.ycm_extra_conf.py
 set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
@@ -297,6 +291,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
+exe 'vert 1resize ' . ((&columns * 119 + 119) / 239)
+exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
 argglobal
 setlocal fdm=indent
 setlocal fde=0
@@ -312,18 +308,39 @@ normal! zo
 normal! zo
 4
 normal! zo
-let s:l = 38 - ((37 * winheight(0) + 26) / 53)
+let s:l = 571 - ((51 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-38
-let s:c = 17 - ((15 * winwidth(0) + 119) / 239)
+571
+let s:c = 3 - ((1 * winwidth(0) + 59) / 119)
 if s:c > 0
-  exe 'normal! ' . s:c . '|zs' . 17 . '|'
+  exe 'normal! ' . s:c . '|zs' . 3 . '|'
 else
-  normal! 017|
+  normal! 03|
 endif
 lcd ~/projects/battle_tank_game
+wincmd w
+argglobal
+if bufexists("term://.//21754:/bin/bash") | buffer term://.//21754:/bin/bash | else | edit term://.//21754:/bin/bash | endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=20
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 196 - ((52 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+196
+normal! 056|
+lcd ~/projects/battle_tank_game
+wincmd w
+exe 'vert 1resize ' . ((&columns * 119 + 119) / 239)
+exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
 tabnext 2
 set stal=1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
