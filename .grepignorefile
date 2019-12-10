@@ -1,2 +1,8 @@
 tags
 *.pri
+*.txt
+*.py
+*.json
+*.target
+*.workspace
+
