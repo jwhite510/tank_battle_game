@@ -15,23 +15,14 @@ UTankAimingComponent::UTankAimingComponent()
 
 	// ...
 }
-
-void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
-{
-  if(!BarrelToSet){return;}
-  Barrel = BarrelToSet;
-}
-void UTankAimingComponent::SetTurretReference(UTankTurret* TurretToSet)
-{
-  if(!TurretToSet){return;}
-  Turret = TurretToSet;
-}
-
 void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 {
+
+    // UE_LOG(LogTemp, Warning, TEXT( "AimAt called!!" ) );
     // auto OurTankName = GetOwner()->GetName();
     // auto BarrelLocation = Barrel->GetComponentLocation().ToString();
     if(!Barrel){return;}
+    // UE_LOG(LogTemp, Warning, TEXT( "Barrel exists" ) );
     FVector OutLaunchVelocity(0);
     FVector StartLocation=Barrel->GetSocketLocation(FName("Projectile"));
 
@@ -55,6 +46,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 }
 void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 {
+  if(!Barrel || !Turret){return;}
   // difference between current barrel rotation and aim direction
   auto BarrelRotation = Barrel->GetForwardVector().Rotation();
   auto AimAsRotator = AimDirection.Rotation();
@@ -65,6 +57,10 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 
   Barrel->Elevate(DeltaRotator.Pitch); // todo remove magic number
   Turret->Rotate(DeltaRotator.Yaw);
-
+}
+void UTankAimingComponent::Initialiase(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet)
+{
+  Barrel = BarrelToSet;
+  Turret = TurretToSet;
 }
 
