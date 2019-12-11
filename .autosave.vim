@@ -8,22 +8,25 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +30 BattleTank/Source/BattleTank/Private/TankMovementComponent.cpp
-badd +26 BattleTank/Source/BattleTank/Public/TankMovementComponent.h
+badd +3 BattleTank/Source/BattleTank/Public/TankMovementComponent.h
 badd +11 BattleTank/Source/BattleTank/Private/TankTrack.cpp
-badd +62 BattleTank/Source/BattleTank/Public/Tank.h
+badd +27 BattleTank/Source/BattleTank/Public/Tank.h
 badd +1 BattleTank/Source/BattleTank/Public
 badd +18 BattleTank/Source/BattleTank/Public/TankTrack.h
 badd +24 BattleTank/Source/BattleTank/Private/TankAIController.cpp
 badd +26 BattleTank/Source/BattleTank/Public/TankAIController.h
-badd +47 BattleTank/Source/BattleTank/Private/Tank.cpp
-badd +45 BattleTank/Source/BattleTank/Private/TankPlayerController.cpp
+badd +17 BattleTank/Source/BattleTank/Private/Tank.cpp
+badd +28 BattleTank/Source/BattleTank/Private/TankPlayerController.cpp
+badd +16 BattleTank/Source/BattleTank/Public/TankPlayerController.h
+badd +1 BattleTank/Source/BattleTank/Private/TankAimingComponent.cpp
+badd +22 BattleTank/Source/BattleTank/Public/TankAimingComponent.h
 badd +1 term://.//22034:/bin/bash
 badd +0 term://.//27304:/bin/bash
 badd +4 BattleTank/BattleTank.uproject
 argglobal
 %argdel
 set stal=2
-edit BattleTank/Source/BattleTank/Private/TankMovementComponent.cpp
+edit BattleTank/Source/BattleTank/Public/TankAimingComponent.h
 set splitbelow splitright
 wincmd _ | wincmd |
 split
@@ -40,11 +43,11 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 47 + 28) / 56)
+exe '1resize ' . ((&lines * 49 + 28) / 56)
 exe 'vert 1resize ' . ((&columns * 119 + 119) / 239)
-exe '2resize ' . ((&lines * 47 + 28) / 56)
+exe '2resize ' . ((&lines * 49 + 28) / 56)
 exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
-exe '3resize ' . ((&lines * 5 + 28) / 56)
+exe '3resize ' . ((&lines * 3 + 28) / 56)
 argglobal
 setlocal fdm=indent
 setlocal fde=0
@@ -54,16 +57,34 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 30 - ((29 * winheight(0) + 23) / 47)
+30
+normal! zo
+30
+normal! zo
+30
+normal! zo
+40
+normal! zo
+40
+normal! zo
+40
+normal! zo
+44
+normal! zo
+44
+normal! zo
+44
+normal! zo
+let s:l = 41 - ((31 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-30
-normal! 03|
+41
+normal! 058|
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
-if bufexists("~/projects/battle_tank_game/BattleTank/Source/BattleTank/Private/TankAIController.cpp") | buffer ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Private/TankAIController.cpp | else | edit ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Private/TankAIController.cpp | endif
+if bufexists("~/projects/battle_tank_game/BattleTank/Source/BattleTank/Public/Tank.h") | buffer ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Public/Tank.h | else | edit ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Public/Tank.h | endif
 setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -72,14 +93,30 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-17
+18
 normal! zo
-let s:l = 24 - ((23 * winheight(0) + 23) / 47)
+18
+normal! zo
+18
+normal! zo
+21
+normal! zo
+21
+normal! zo
+21
+normal! zo
+38
+normal! zo
+38
+normal! zo
+38
+normal! zo
+let s:l = 41 - ((37 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-24
-normal! 05|
+41
+normal! 09|
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
@@ -94,12 +131,11 @@ setlocal fdn=20
 setlocal fen
 lcd ~/projects/battle_tank_game
 wincmd w
-2wincmd w
-exe '1resize ' . ((&lines * 47 + 28) / 56)
+exe '1resize ' . ((&lines * 49 + 28) / 56)
 exe 'vert 1resize ' . ((&columns * 119 + 119) / 239)
-exe '2resize ' . ((&lines * 47 + 28) / 56)
+exe '2resize ' . ((&lines * 49 + 28) / 56)
 exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
-exe '3resize ' . ((&lines * 5 + 28) / 56)
+exe '3resize ' . ((&lines * 3 + 28) / 56)
 tabnew
 set splitbelow splitright
 set nosplitbelow
@@ -119,11 +155,11 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 7158 - ((52 * winheight(0) + 26) / 53)
+let s:l = 10051 - ((52 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7158
+10051
 normal! 0
 lcd ~/projects/battle_tank_game
 tabnew
@@ -145,12 +181,12 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 231 - ((13 * winheight(0) + 26) / 53)
+let s:l = 692 - ((52 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-231
-normal! 059|
+692
+normal! 056|
 lcd ~/projects/battle_tank_game
 tabnext 1
 set stal=1
