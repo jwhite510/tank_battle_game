@@ -36,5 +36,6 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 
   IntendTurnRight(RightThrow);
 
-  // UE_LOG(LogTemp, Warning, TEXT( "%s vectoring to %s" ), *TankName, *AIForwardIntention);
+  // UE_LOG(LogTemp, Warning, TEXT( "Right %f, Forward %f" ), RightThrow, ForwardThrow);
+
 }

@@ -24,10 +24,10 @@ public:
         void AimAt(FVector HitLocation);
 
 
-        UFUNCTION(BlueprintCallable, Category = Setup)
+        UFUNCTION(BlueprintCallable, Category="Setup")
         void SetBarrelReference(UTankBarrel* BarrelToSet);
 
-        UFUNCTION(BlueprintCallable, Category = Setup)
+        UFUNCTION(BlueprintCallable, Category="Setup")
         void SetTurretReference(UTankTurret* TurretToSet);
 
         UFUNCTION(BlueprintCallable)
@@ -39,7 +39,7 @@ protected:
 	virtual void BeginPlay() override;
         UTankAimingComponent* TankAimingComponent = nullptr;
 
-        UPROPERTY(BlueprintReadOnly, Category = Firing)
+        UPROPERTY(BlueprintReadOnly, Category="Firing")
         UTankMovementComponent* TankMovementComponent = nullptr;
 
 
@@ -49,14 +49,14 @@ public:
 
 private:
 
-        UPROPERTY(EditDefaultsOnly, Category = Setup)
+        UPROPERTY(EditDefaultsOnly, Category="Setup")
         TSubclassOf<AProjectile> ProjectileBluePrint;
 
-        UPROPERTY(EditDefaultsOnly, Category = Firing)
+        UPROPERTY(EditDefaultsOnly, Category="Firing")
         float ReloadTimeInSeconds = 3;
 
         // all must have the same value
-        UPROPERTY(EditDefaultsOnly, Category = Firing)
+        UPROPERTY(EditDefaultsOnly, Category="Firing")
         float LaunchSpeed = 4000.0; // sensible starting values
 
 
