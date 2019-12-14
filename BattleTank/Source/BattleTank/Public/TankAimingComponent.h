@@ -53,7 +53,10 @@ private:
         UTankBarrel* Barrel = nullptr;
         UTankTurret* Turret = nullptr;
 
-        void MoveBarrelTowards(FVector AimDirection);
+        void MoveBarrelTowards(FVector AimDirection_in);
+        FVector AimDirection;
+
+        bool IsBarrelMoving();
 
         UPROPERTY(EditDefaultsOnly, Category="Setup")
         TSubclassOf<AProjectile> ProjectileBluePrint;
