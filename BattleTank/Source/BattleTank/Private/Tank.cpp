@@ -23,7 +23,6 @@ ATank::ATank()
 // Called to bind functionality to input
 void ATank::AimAt(FVector HitLocation)
 {
-    UE_LOG(LogTemp, Warning, TEXT( "Tank::AimAt is being called" ));
     if(!ensure(TankAimingComponent)){return;}
     TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }

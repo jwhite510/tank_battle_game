@@ -17,7 +17,6 @@ UTankAimingComponent::UTankAimingComponent()
 }
 void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 {
-    UE_LOG(LogTemp, Warning, TEXT( "AimAt is being called" ));
 
     // auto OurTankName = GetOwner()->GetName();
     // auto BarrelLocation = Barrel->GetComponentLocation().ToString();
