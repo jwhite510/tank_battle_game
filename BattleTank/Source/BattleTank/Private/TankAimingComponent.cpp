@@ -17,12 +17,11 @@ UTankAimingComponent::UTankAimingComponent()
 }
 void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 {
+    UE_LOG(LogTemp, Warning, TEXT( "AimAt is being called" ));
 
-    // UE_LOG(LogTemp, Warning, TEXT( "AimAt called!!" ) );
     // auto OurTankName = GetOwner()->GetName();
     // auto BarrelLocation = Barrel->GetComponentLocation().ToString();
     if(!ensure(Barrel)){return;}
-    // UE_LOG(LogTemp, Warning, TEXT( "Barrel exists" ) );
     FVector OutLaunchVelocity(0);
     FVector StartLocation=Barrel->GetSocketLocation(FName("Projectile"));
 
@@ -53,7 +52,6 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 
   auto DeltaRotator = AimAsRotator - BarrelRotation;
 
-  // UE_LOG(LogTemp, Warning, TEXT( "AimAsRotator %s" ), *AimAsRotator.ToString());
 
   Barrel->Elevate(DeltaRotator.Pitch); // todo remove magic number
   Turret->Rotate(DeltaRotator.Yaw);
