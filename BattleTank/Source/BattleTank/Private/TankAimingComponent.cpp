@@ -3,6 +3,7 @@
 
 #include "TankAimingComponent.h"
 #include "TankBarrel.h"
+#include "Projectile.h"
 #include "TankTurret.h"
 
 
@@ -60,4 +61,20 @@ void UTankAimingComponent::Initialiase(UTankBarrel* BarrelToSet, UTankTurret* Tu
   Barrel = BarrelToSet;
   Turret = TurretToSet;
 }
+void UTankAimingComponent::Fire()
+{
+  if(!ensure(Barrel && ProjectileBluePrint)){return;}
+  bool isReloaded = (GetWorld()->GetTimeSeconds() - LastFireTime) > ReloadTimeInSeconds;
+  if(isReloaded){
 
+  // spawn a projectile at the socket loaction
+  auto Projectile = GetWorld()->SpawnActor<AProjectile>(
+    ProjectileBluePrint,
+    Barrel->GetSocketLocation(FName("Projectile")),
+    Barrel->GetSocketRotation(FName("Projectile"))
+    );
+  Projectile->LaunchProjectile(LaunchSpeed);
+  LastFireTime = GetWorld()->GetTimeSeconds();
+
+  }
+}
