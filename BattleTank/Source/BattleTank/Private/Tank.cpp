@@ -1,7 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "TankAimingComponent.h"
 #include "TankBarrel.h"
 #include "Projectile.h"
 #include "Tank.h"
@@ -9,8 +8,6 @@
 void ATank::BeginPlay()
 {
   Super::BeginPlay(); // needed for blueprint begin play
-
-  TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
 }
 
 // Sets default values
@@ -19,12 +16,6 @@ ATank::ATank()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
-}
-// Called to bind functionality to input
-void ATank::AimAt(FVector HitLocation)
-{
-    if(!ensure(TankAimingComponent)){return;}
-    TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 void ATank::Fire()
 {

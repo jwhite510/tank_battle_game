@@ -30,7 +30,7 @@ public:
         UFUNCTION(BlueprintCallable, Category="Setup")
         void Initialiase(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
 
-        void AimAt(FVector HitLocation, float LaunchSpeed);
+        void AimAt(FVector HitLocation);
 
 protected:
         UPROPERTY(BlueprintReadOnly, Category="State")
@@ -46,5 +46,9 @@ private:
 
         void MoveBarrelTowards(FVector AimDirection);
         void MoveTurretTowards(FVector AimDirection);
+
+        // TODO remove once firing is moved to aiming component
+        UPROPERTY(EditDefaultsOnly, Category="Firing")
+        float LaunchSpeed = 4000.0; // sensible starting values
 
 };

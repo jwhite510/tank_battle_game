@@ -8,7 +8,6 @@
 
 class UTankBarrel; // forward declaration
 class UTankTurret; // forward declaration
-class UTankAimingComponent;
 class AProjectile;
 class UTankMovementComponent;
 
@@ -23,16 +22,11 @@ public:
 
         virtual void BeginPlay() override;
 
-        void AimAt(FVector HitLocation);
-
         UFUNCTION(BlueprintCallable)
         void Fire();
 
 
 protected:
-	// Called when the game starts or when spawned
-        UPROPERTY(BlueprintReadOnly, Category="Firing")
-        UTankAimingComponent* TankAimingComponent = nullptr;
 
         UPROPERTY(BlueprintReadOnly, Category="Firing")
         UTankMovementComponent* TankMovementComponent = nullptr;
