@@ -12,7 +12,7 @@ UTankAimingComponent::UTankAimingComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = false;
+	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
 }
@@ -56,6 +56,24 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
   Barrel->Elevate(DeltaRotator.Pitch); // todo remove magic number
   Turret->Rotate(DeltaRotator.Yaw);
 }
+
+void UTankAimingComponent::BeginPlay()
+{
+  // Super::BeginPlay();
+  LastFireTime = GetWorld()->GetTimeSeconds();
+}
+
+
+void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
+{
+  UE_LOG(LogTemp, Warning, TEXT( "TickComponent ticking" ) );
+  if( (GetWorld()->GetTimeSeconds() - LastFireTime) > ReloadTimeInSeconds )
+  {
+    FiringState = EFiringState::Reloading;
+  }
+  // TODO: Handle aiming and locked states
+
+}
 void UTankAimingComponent::Initialiase(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet)
 {
   Barrel = BarrelToSet;
@@ -63,18 +81,18 @@ void UTankAimingComponent::Initialiase(UTankBarrel* BarrelToSet, UTankTurret* Tu
 }
 void UTankAimingComponent::Fire()
 {
-  if(!ensure(Barrel && ProjectileBluePrint)){return;}
-  bool isReloaded = (GetWorld()->GetTimeSeconds() - LastFireTime) > ReloadTimeInSeconds;
-  if(isReloaded){
+  if(FiringState!=EFiringState::Reloading){
 
-  // spawn a projectile at the socket loaction
-  auto Projectile = GetWorld()->SpawnActor<AProjectile>(
-    ProjectileBluePrint,
-    Barrel->GetSocketLocation(FName("Projectile")),
-    Barrel->GetSocketRotation(FName("Projectile"))
-    );
-  Projectile->LaunchProjectile(LaunchSpeed);
-  LastFireTime = GetWorld()->GetTimeSeconds();
+    // spawn a projectile at the socket loaction
+    if(!ensure(Barrel)){return;}
+    if(!ensure(ProjectileBluePrint)){return;}
+    auto Projectile = GetWorld()->SpawnActor<AProjectile>(
+        ProjectileBluePrint,
+        Barrel->GetSocketLocation(FName("Projectile")),
+        Barrel->GetSocketRotation(FName("Projectile"))
+        );
+    Projectile->LaunchProjectile(LaunchSpeed);
+    LastFireTime = GetWorld()->GetTimeSeconds();
 
   }
 }
