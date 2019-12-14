@@ -5,4 +5,5 @@ tags
 *.json
 *.target
 *.workspace
+*.vim
 
