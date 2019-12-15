@@ -15,7 +15,7 @@ void UTankTrack::SetThrottle(float Throttle)
   auto ForceApplied = GetForwardVector()*Throttle*TrackMaxDrivingForce;
   auto ForceLocation = GetComponentLocation();
   auto TankRoot = Cast<UPrimitiveComponent>(GetOwner()->GetRootComponent());
-  UE_LOG(LogTemp, Warning, TEXT("set throttle applied %s"), *ForceApplied.ToString());
+  // UE_LOG(LogTemp, Warning, TEXT("set throttle applied %s"), *ForceApplied.ToString());
   TankRoot->AddForceAtLocation(ForceApplied, ForceLocation);
 }
 
@@ -27,15 +27,10 @@ void UTankTrack::TickComponent(float DeltaTime, enum ELevelTick TickType, FActor
 
   auto CorrectionAcceleration = -SlippageSpeed / DeltaTime * GetRightVector();
 
-  // work out the required acceleration this frame to correct
-
   // calculate and apply sideways force
   auto TankRoot = Cast<UStaticMeshComponent>(GetOwner()->GetRootComponent());
   auto CorrectionForce = (TankRoot->GetMass() * CorrectionAcceleration)/2; // two tracks
   TankRoot->AddForce(CorrectionForce);
-
-  // UE_LOG(LogTemp, Warning, TEXT("Track ticking"));
-  // Super::TickComponent();
 
 }
 
