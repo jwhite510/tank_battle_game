@@ -7,7 +7,7 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +9 BattleTank/Source/BattleTank/Private/TankTrack.cpp
+badd +11 BattleTank/Source/BattleTank/Private/TankTrack.cpp
 badd +2 BattleTank/Source/BattleTank/Public/TankTrack.h
 badd +1 term://.//3606:/bin/bash
 badd +0 term://.//4223:/bin/bash
@@ -39,11 +39,11 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 17 - ((16 * winheight(0) + 26) / 53)
+let s:l = 52 - ((43 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-17
+52
 normal! 03|
 lcd ~/projects/battle_tank_game
 wincmd w
@@ -65,18 +65,18 @@ normal! zo
 normal! zo
 18
 normal! zo
-26
+28
 normal! zo
-26
+28
 normal! zo
-26
+28
 normal! zo
-let s:l = 31 - ((30 * winheight(0) + 26) / 53)
+let s:l = 18 - ((17 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-31
-normal! 0171|
+18
+normal! 027|
 lcd ~/projects/battle_tank_game
 wincmd w
 exe 'vert 1resize ' . ((&columns * 119 + 119) / 239)
@@ -100,11 +100,11 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 10053 - ((52 * winheight(0) + 26) / 53)
+let s:l = 10008 - ((37 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-10053
+10008
 normal! 0
 lcd ~/projects/battle_tank_game
 tabnew
@@ -126,11 +126,11 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 290 - ((52 * winheight(0) + 26) / 53)
+let s:l = 424 - ((52 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-290
+424
 normal! 056|
 lcd ~/projects/battle_tank_game
 tabnext 1
