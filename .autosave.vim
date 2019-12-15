@@ -7,8 +7,8 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +8 BattleTank/Source/BattleTank/Private/TankTrack.cpp
-badd +1 BattleTank/Source/BattleTank/Public/TankTrack.h
+badd +9 BattleTank/Source/BattleTank/Private/TankTrack.cpp
+badd +2 BattleTank/Source/BattleTank/Public/TankTrack.h
 badd +1 term://.//3606:/bin/bash
 badd +0 term://.//4223:/bin/bash
 argglobal
@@ -39,17 +39,17 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 29 - ((20 * winheight(0) + 26) / 53)
+let s:l = 17 - ((16 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-29
-normal! 0
+17
+normal! 03|
 lcd ~/projects/battle_tank_game
 wincmd w
 argglobal
 if bufexists("~/projects/battle_tank_game/BattleTank/Source/BattleTank/Public/TankTrack.h") | buffer ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Public/TankTrack.h | else | edit ~/projects/battle_tank_game/BattleTank/Source/BattleTank/Public/TankTrack.h | endif
-setlocal fdm=manual
+setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
@@ -57,19 +57,6 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-silent! normal! zE
-15,15fold
-15,15fold
-15,15fold
-18,23fold
-18,23fold
-18,23fold
-18,23fold
-26,27fold
-26,27fold
-26,27fold
-26,27fold
-15,27fold
 15
 normal! zo
 18
@@ -78,12 +65,18 @@ normal! zo
 normal! zo
 18
 normal! zo
-let s:l = 19 - ((18 * winheight(0) + 26) / 53)
+26
+normal! zo
+26
+normal! zo
+26
+normal! zo
+let s:l = 31 - ((30 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-19
-normal! 040|
+31
+normal! 0171|
 lcd ~/projects/battle_tank_game
 wincmd w
 exe 'vert 1resize ' . ((&columns * 119 + 119) / 239)
@@ -107,11 +100,11 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 4891 - ((52 * winheight(0) + 26) / 53)
+let s:l = 10053 - ((52 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4891
+10053
 normal! 0
 lcd ~/projects/battle_tank_game
 tabnew
@@ -133,12 +126,12 @@ setlocal fdl=20
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 155 - ((52 * winheight(0) + 26) / 53)
+let s:l = 290 - ((52 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-155
-normal! 057|
+290
+normal! 056|
 lcd ~/projects/battle_tank_game
 tabnext 1
 set stal=1
