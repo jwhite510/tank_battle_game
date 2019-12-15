@@ -1,5 +1,6 @@
 {
 	"files.exclude": {
+		"/home/jonathon/projects/battle_tank_game/BattleTank/.kdev4": true,
 		"/home/jonathon/projects/battle_tank_game/BattleTank/.vscode": true,
 		"/home/jonathon/projects/battle_tank_game/BattleTank/CMakeFiles": true,
 		"/home/jonathon/projects/battle_tank_game/BattleTank/Content": true,

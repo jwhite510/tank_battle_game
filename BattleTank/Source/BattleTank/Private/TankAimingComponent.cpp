@@ -52,9 +52,16 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection_in)
 
   auto DeltaRotator = AimAsRotator - BarrelRotation;
 
-
+  if(FMath::Abs(DeltaRotator.Yaw) < 180)
+  {
+    Turret->Rotate(DeltaRotator.Yaw);
+  }
+  else
+  {
+    Turret->Rotate(-DeltaRotator.Yaw);
+  }
   Barrel->Elevate(DeltaRotator.Pitch); // todo remove magic number
-  Turret->Rotate(DeltaRotator.Yaw);
+
 }
 
 void UTankAimingComponent::BeginPlay()
