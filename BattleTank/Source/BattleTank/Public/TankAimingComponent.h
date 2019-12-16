@@ -41,7 +41,7 @@ public:
         EFiringState GetFiringState() const;
 
         UFUNCTION(BlueprintCallable, Category="Firing")
-        int GetRoundsLeft() const;
+        int32 GetRoundsLeft() const;
 
 
 protected:
@@ -77,7 +77,8 @@ private:
         // local barrel reference for spawning projectile
         float LastFireTime = 0;
 
-        int RoundsLeft = 3;
+        UPROPERTY(EditDefaultsOnly, Category="Firing")
+        int32 RoundsLeft = 3;
 
 
 };
