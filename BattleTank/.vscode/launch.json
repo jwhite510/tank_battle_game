@@ -4,101 +4,125 @@
 		{
 			"name": "BattleTank (Debug)",
 			"request": "launch",
-			"preLaunchTask": "BattleTank Linux Debug Build",
-			"program": "/home/jonathon/projects/battle_tank_game/BattleTank/Binaries/Linux/BattleTank-Linux-Debug",
+			"preLaunchTask": "BattleTank Win64 Debug Build",
+			"program": "C:\\Users\\jonathon\\projects\\battle_tank_game\\BattleTank\\Binaries\\Win64\\UE4-Win64-Debug.exe",
 			"args": [
 			],
-			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
-			"type": "lldb"
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "BattleTank (DebugGame)",
 			"request": "launch",
-			"preLaunchTask": "BattleTank Linux DebugGame Build",
-			"program": "/home/jonathon/projects/battle_tank_game/BattleTank/Binaries/Linux/BattleTank-Linux-DebugGame",
+			"preLaunchTask": "BattleTank Win64 DebugGame Build",
+			"program": "C:\\Users\\jonathon\\projects\\battle_tank_game\\BattleTank\\Binaries\\Win64\\UE4-Win64-DebugGame.exe",
 			"args": [
 			],
-			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
-			"type": "lldb"
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "BattleTank (Development)",
 			"request": "launch",
-			"preLaunchTask": "BattleTank Linux Development Build",
-			"program": "/home/jonathon/projects/battle_tank_game/BattleTank/Binaries/Linux/BattleTank",
+			"preLaunchTask": "BattleTank Win64 Development Build",
+			"program": "C:\\Users\\jonathon\\projects\\battle_tank_game\\BattleTank\\Binaries\\Win64\\UE4.exe",
 			"args": [
 			],
-			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
-			"type": "lldb"
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "BattleTank (Shipping)",
 			"request": "launch",
-			"preLaunchTask": "BattleTank Linux Shipping Build",
-			"program": "/home/jonathon/projects/battle_tank_game/BattleTank/Binaries/Linux/BattleTank-Linux-Shipping",
+			"preLaunchTask": "BattleTank Win64 Shipping Build",
+			"program": "C:\\Users\\jonathon\\projects\\battle_tank_game\\BattleTank\\Binaries\\Win64\\UE4-Win64-Shipping.exe",
 			"args": [
 			],
-			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
-			"type": "lldb"
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "BattleTank (Test)",
 			"request": "launch",
-			"preLaunchTask": "BattleTank Linux Test Build",
-			"program": "/home/jonathon/projects/battle_tank_game/BattleTank/Binaries/Linux/BattleTank-Linux-Test",
+			"preLaunchTask": "BattleTank Win64 Test Build",
+			"program": "C:\\Users\\jonathon\\projects\\battle_tank_game\\BattleTank\\Binaries\\Win64\\UE4-Win64-Test.exe",
 			"args": [
 			],
-			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
-			"type": "lldb"
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "BattleTankEditor (Debug)",
 			"request": "launch",
-			"preLaunchTask": "BattleTankEditor Linux Debug Build",
-			"program": "/home/jonathon/projects/unreal_engine/UnrealEngine/Engine/Binaries/Linux/UE4Editor-Linux-Debug",
+			"preLaunchTask": "BattleTankEditor Win64 Debug Build",
+			"program": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
 			"args": [
-				"/home/jonathon/projects/battle_tank_game/BattleTank/BattleTank.uproject"
+				"C:\\Users\\jonathon\\projects\\battle_tank_game\\BattleTank\\BattleTank.uproject"
 			],
-			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
-			"type": "lldb"
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "BattleTankEditor (DebugGame)",
 			"request": "launch",
-			"preLaunchTask": "BattleTankEditor Linux DebugGame Build",
-			"program": "/home/jonathon/projects/unreal_engine/UnrealEngine/Engine/Binaries/Linux/UE4Editor",
+			"preLaunchTask": "BattleTankEditor Win64 DebugGame Build",
+			"program": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Binaries\\Win64\\UE4Editor-Win64-DebugGame.exe",
 			"args": [
-				"/home/jonathon/projects/battle_tank_game/BattleTank/BattleTank.uproject"
+				"C:\\Users\\jonathon\\projects\\battle_tank_game\\BattleTank\\BattleTank.uproject"
 			],
-			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
-			"type": "lldb"
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "BattleTankEditor (Development)",
 			"request": "launch",
-			"preLaunchTask": "BattleTankEditor Linux Development Build",
-			"program": "/home/jonathon/projects/unreal_engine/UnrealEngine/Engine/Binaries/Linux/UE4Editor",
+			"preLaunchTask": "BattleTankEditor Win64 Development Build",
+			"program": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Binaries\\Win64\\UE4Editor.exe",
 			"args": [
-				"/home/jonathon/projects/battle_tank_game/BattleTank/BattleTank.uproject"
+				"C:\\Users\\jonathon\\projects\\battle_tank_game\\BattleTank\\BattleTank.uproject"
 			],
-			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine",
-			"type": "lldb"
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.24",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
 		},
 		{
 			"name": "Generate Project Files",
-			"type": "mono",
+			"type": "clr",
 			"request": "launch",
-			"program": "/home/jonathon/projects/unreal_engine/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe",
-			"console": "internalConsole",
+			"program": "C:\\Program Files\\Epic Games\\UE_4.24\\Engine\\Binaries\\DotNET\\UnrealBuildTool.exe",
+			"console": "externalTerminal",
 			"args": [
 				"-projectfiles",
 				"-vscode",
-				"-project=\"/home/jonathon/projects/battle_tank_game/BattleTank/BattleTank.uproject\"",
+				"-project=\"C:\\Users\\jonathon\\projects\\battle_tank_game\\BattleTank\\BattleTank.uproject\"",
 				"-game",
 				"-engine"
 			],
 			"internalConsoleOptions": "openOnSessionStart",
-			"cwd": "/home/jonathon/projects/unreal_engine/UnrealEngine"
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.24"
 		}
 	]
 }

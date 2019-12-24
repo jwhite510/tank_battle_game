@@ -18,7 +18,7 @@ fun! UnrealDebug()
 		" switch to buffer
 		:execute ":b ".g:unreal_debug_buffer
 		" run the debug
-		call feedkeys("GV?Running Mono"."\<CR>".":cgetbuffer"."\<CR>"." :call ProcessQF()"."\<CR>")
+		call feedkeys("GV?Starting HotReload"."\<CR>".":cgetbuffer"."\<CR>"." :call ProcessQF()"."\<CR>")
 
 		" return to original position
 		call feedkeys("\<C-o>")
