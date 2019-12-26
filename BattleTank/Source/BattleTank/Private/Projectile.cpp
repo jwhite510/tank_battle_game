@@ -24,7 +24,15 @@ AProjectile::AProjectile()
 
         ImpactBlast = CreateDefaultSubobject<UParticleSystemComponent>(FName("Impact Blast"));
         ImpactBlast->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-        ProjectileMovement->bAutoActivate = false;
+        ImpactBlast->bAutoActivate = false;
+}
+
+void AProjectile::OnHit( UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit )
+{
+
+  UE_LOG(LogTemp, Warning, TEXT("OnHit called"));
+  LaunchBlast->Deactivate();
+  ImpactBlast->Activate();
 
 
 }
@@ -33,6 +41,7 @@ AProjectile::AProjectile()
 void AProjectile::BeginPlay()
 {
 	Super::BeginPlay();
+        CollisionMesh->OnComponentHit.AddDynamic(this, &AProjectile::OnHit);
 	
 }
 
