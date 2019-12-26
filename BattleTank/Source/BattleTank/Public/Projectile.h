@@ -31,9 +31,11 @@ private:
         UPROPERTY(VisibleAnywhere, Category="Components")
         UParticleSystemComponent* LaunchBlast = nullptr;
 
+        UPROPERTY(VisibleAnywhere, Category="Components")
+        UParticleSystemComponent* ImpactBlast = nullptr;
+
 public:
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
         void LaunchProjectile(float Speed);
 
 
